@@ -1,0 +1,58 @@
+<div
+  class="modal fade"
+  bsModal
+  #buyModal="bs-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="buyProduct"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Добавление в корзину</h4>
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="buyModal.hide()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <div class="buy-modal__image-wrapper">
+            <img [src]="product ? product.imageSrc : '/assets/defaulticon.png'" class="buy-modal__image" role="presentation">
+          </div><div class="buy-modal__form-wrapper">
+            <h4>
+              {{ product.name }}
+            </h4>
+            <div class="form-group">
+              <label for="product-quantity">Количество</label>
+              <input
+                type="number"
+                class="form-control"
+                id="product-quantity"
+                placeholder="0"
+                name="product-quantity"
+                min="0"
+                max="1000"
+                [(ngModel)]="product.quantity"
+              >
+            </div>
+            <div class="form-group" *ngIf="!!product.quantity">
+              <span>Сумма: {{ product.price * (product.quantity ? +product.quantity : 0) | costFormat }} руб.</span>
+            </div>
+            <button
+              class="btn btn-success"
+              (click)="addToShopcart()"
+            >
+              <span class="glyphicon glyphicon-shopping-cart"></span> Добавить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

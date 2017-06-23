@@ -1,0 +1,12 @@
+.product-card {
+  width: 200px;
+  margin: 16px 50px;
+  display: inline-block;
+}
+.product-card__image {
+  width: 100%;
+}
+.product-card__price {
+  display: block;
+  margin-bottom: 16px;
+}

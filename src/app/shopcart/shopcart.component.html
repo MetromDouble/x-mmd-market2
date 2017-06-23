@@ -1,0 +1,50 @@
+<div class="panel panel-default" *ngIf="!!products.length">
+  <div class="panel-heading">Корзина</div>
+
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Название</th>
+      <th>Цена за единицу</th>
+      <th>Количество</th>
+      <th>Общая сумма по товару</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let product of products">
+      <td><img [src]="product.imageSrc" role="presentation" style="height: 40px"></td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price | costFormat }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price * product.quantity | costFormat }}</td>
+      <td>
+        <a (click)="removeFromShopcart(product.id)">
+          <i class="glyphicon glyphicon-remove text-danger"></i>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>
+          Итого
+        </strong>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <strong>
+          {{ getSumm() | costFormat }}
+        </strong>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+<a href="#" class="btn btn-success" *ngIf="!!products.length">
+  Оформить заказ
+</a>
+
+<strong *ngIf="!products.length">
+  Корзина пуста
+</strong>

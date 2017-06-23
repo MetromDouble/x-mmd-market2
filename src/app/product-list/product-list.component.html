@@ -1,0 +1,19 @@
+<article class="panel panel-default product-card" *ngFor="let item of products">
+  <div class="panel-body">
+    <img class="product-card__image" [src]="item.imageSrc" role="presentation">
+    <h4 class="product-card__name">
+      {{ item.name }}
+    </h4>
+    <strong class="product-card__price">
+      {{ item.price | costFormat }} руб.
+    </strong>
+    <button
+      class="btn btn-success btn-block"
+      type="button"
+      (click)="buyModal.show(item)"
+    >
+      Купить
+    </button>
+  </div>
+</article>
+<buy-modal #buyModal></buy-modal>

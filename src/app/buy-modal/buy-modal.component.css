@@ -1,0 +1,15 @@
+.buy-modal__image {
+  width: 100%;
+  display: block;
+}
+.buy-modal__image-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  width: 140px;
+}
+.buy-modal__form-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 156px);
+  margin-left: 16px;
+}
